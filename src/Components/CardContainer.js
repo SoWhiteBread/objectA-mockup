@@ -6,7 +6,10 @@ export function CardContainer({ input }) {
     if (input === "") {
       return el;
     } else {
-      return el.location.city.toLowerCase().includes(input);
+      return (
+        el.company.name.toLowerCase().includes(input) ||
+        el.brief.toLowerCase().includes(input)
+      );
     }
   });
   return (
