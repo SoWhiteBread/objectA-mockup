@@ -1,7 +1,8 @@
 import { React } from "react";
+//import { useSelector } from "react-redux";
 import data from "../tempData/mockData.json";
 
-export function CardContainer({ input }) {
+export const CardContainer = ({ input }) => {
   const filteredProjects = data.filter((el) => {
     if (input === "") {
       return el;
@@ -27,4 +28,4 @@ export function CardContainer({ input }) {
       </div>
     </div>
   );
-}
+};

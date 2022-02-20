@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CardContainer } from "./CardContainer";
 
-export function Dashboard() {
+export const Dashboard = () => {
   const [searchBar, setSearchBar] = useState("");
   let inputHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
@@ -24,4 +24,4 @@ export function Dashboard() {
       </div>
     </div>
   );
-}
+};
