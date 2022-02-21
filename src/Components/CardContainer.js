@@ -1,29 +1,25 @@
 import { React } from "react";
-//import { useSelector } from "react-redux";
-import data from "../tempData/mockData.json";
+import { useSelector } from "react-redux";
+import { Card } from "./Card";
 
 export const CardContainer = ({ input }) => {
-  const filteredProjects = data.filter((el) => {
+  const pokeData = useSelector((state) => state.data);
+  const filteredPoke = pokeData.filter((el) => {
     if (input === "") {
       return el;
     } else {
-      return (
-        el.company.name.toLowerCase().includes(input) ||
-        el.brief.toLowerCase().includes(input)
-      );
+      return el.name.toLowerCase().includes(input);
     }
   });
   return (
     <div>
+      <div className="resultsBar">
+        {input ? "Filtered" : "All"} Jobs - {filteredPoke.length} Result
+        {filteredPoke.length > 1 ? "s" : " "}
+      </div>
       <div className="cardContainer">
-        {filteredProjects.map((i) => (
-          <div className="card">
-            <p>{i.company.name}</p>
-            <p>
-              {i.location.city}, {i.location.country}
-            </p>
-            <p>{i.brief}</p>
-          </div>
+        {filteredPoke.map((i) => (
+          <Card key={i.id} pokeData={i} />
         ))}
       </div>
     </div>

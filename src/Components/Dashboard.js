@@ -9,11 +9,13 @@ export const Dashboard = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="dashboard">
+      <div className="searchBar">
+        <img src="Vector.png" alt="search icon" className="searchIcon" />
         <input
           type="text"
           id="projectSearch"
+          className="projectSearch"
           aria-label="Search and filter creative projects"
           placeholder="Search creative projects"
           onChange={inputHandler}
